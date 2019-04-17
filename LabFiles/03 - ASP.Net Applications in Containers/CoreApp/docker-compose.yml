@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  coreapp:
+    image: coreapp
+    build:
+      context: .
+      dockerfile: CoreApp\Dockerfile
+    volumes:
+      - C:/Data

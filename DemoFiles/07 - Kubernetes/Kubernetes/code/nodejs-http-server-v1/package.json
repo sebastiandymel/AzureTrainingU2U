@@ -1,0 +1,17 @@
+{
+  "name": "u2u-nodejs-http-server",
+  "version": "1.0.0",
+  "description": "simple http server",
+  "main": "server.js",
+  "scripts": {
+    "docker-build": "docker build -t nodejs-http-server .",
+    "docker-run": "docker run -p 4000:8080 nodejs-http-server",
+    "docker-tag": "docker tag nodejs-http-server u2utraining/nodejs-http-server:v1",
+    "docker-login": "docker login",
+    "docker-push": "docker push u2utraining/nodejs-http-server:v1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "U2U",
+  "license": "MIT"
+}

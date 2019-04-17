@@ -1,0 +1,27 @@
+﻿@model string[]
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<ul>
+    @foreach (var filename in Model)
+    {
+        <li>@filename</li>
+    }
+</ul>
+
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>UPLOAD</p>
+            <input type="file" name="file" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            
+            <input type="submit" value="Upload" />
+        </div>
+    </div>
+</form>

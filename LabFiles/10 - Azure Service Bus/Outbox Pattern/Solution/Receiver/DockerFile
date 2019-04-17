@@ -1,0 +1,17 @@
+FROM node:8-alpine
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY package.json /app/
+COPY package-lock.json /app/
+RUN npm install
+
+COPY . /app
+
+ENV PORT 3001
+ENV AZURE_SERVICEBUS_CONNECTION_STRING Endpoint=sb://outboxlab.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=1KKcM9hfZhqSPs+oPCn1jKVOvqE/FT6MYYFgFHFVUAw=
+
+EXPOSE 3001
+EXPOSE 5859
+CMD [ "node", "--inspect=0.0.0.0:5859", "src/receiver.js" ]

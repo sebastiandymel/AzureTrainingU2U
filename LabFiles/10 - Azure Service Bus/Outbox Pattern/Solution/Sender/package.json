@@ -1,0 +1,23 @@
+{
+    "name": "service-bus-sender",
+    "description": "Simple Node.js sample for Azure Service Bus",
+    "version": "0.0.1",
+    "private": true,
+    "license": "MIT",
+    "author": "U2U",
+    "engines": {
+        "node": ">=6.9.1"
+    },
+    "scripts": {
+        "start": "npm run docker-build && npm run docker-run",
+        "stop": "npm run docker-stop && npm run docker-rm",
+        "docker-build": "docker build -t servicebussender .",
+        "docker-run": "docker run --name ServiceBusSenderContainer -d -p 3000:3000 -p 5858:5858 servicebussender",
+        "docker-logs": "docker logs ServiceBusSenderContainer",
+        "docker-stop": "docker stop ServiceBusSenderContainer",
+        "docker-rm": "docker rm ServiceBusSenderContainer"
+    },
+    "dependencies": {
+        "azure": "^2.2.1-preview"
+    }
+}

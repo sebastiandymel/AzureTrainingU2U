@@ -1,0 +1,23 @@
+{
+    "name": "service-bus-receiver",
+    "description": "Simple Node.js sample for Azure Service Bus",
+    "version": "0.0.1",
+    "private": true,
+    "license": "MIT",
+    "author": "Microsoft",
+    "engines": {
+        "node": ">=6.9.1"
+    },
+    "scripts": {
+        "start": "npm run docker-build && npm run docker-run",
+        "stop": "npm run docker-stop && npm run docker-rm",
+        "docker-build": "docker build -t servicebusreceiver .",
+        "docker-run": "docker run --name ServiceBusReceiverContainer -d -p 3001:3001 -p 5859:5859 servicebusreceiver",
+        "docker-logs": "docker logs ServiceBusReceiverContainer",
+        "docker-stop": "docker stop ServiceBusReceiverContainer",
+        "docker-rm": "docker rm ServiceBusReceiverContainer"
+    },
+    "dependencies": {
+        "azure": "^2.2.1-preview"
+    }
+}

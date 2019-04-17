@@ -1,0 +1,16 @@
+FROM node:8-alpine
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY package.json /app/
+COPY package-lock.json /app/
+RUN npm install
+
+COPY . /app
+
+ENV PORT 3001
+
+EXPOSE 3001
+EXPOSE 5859
+CMD [ "node", "--inspect=0.0.0.0:5859", "src/receiver.js" ]
